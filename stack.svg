@@ -1,0 +1,154 @@
+<svg width="800" height="130" viewBox="0 0 800 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .sec { font-family: 'JetBrains Mono','Courier New',monospace; font-size: 9px; fill: #484f58; letter-spacing: 2px; }
+      .tag-base { font-family: 'JetBrains Mono','Courier New',monospace; font-size: 10.5px; }
+      /* fade-in stagger for tags */
+      .t1  { opacity:0; animation: fadein 0.4s ease forwards 0.1s; }
+      .t2  { opacity:0; animation: fadein 0.4s ease forwards 0.2s; }
+      .t3  { opacity:0; animation: fadein 0.4s ease forwards 0.3s; }
+      .t4  { opacity:0; animation: fadein 0.4s ease forwards 0.4s; }
+      .t5  { opacity:0; animation: fadein 0.4s ease forwards 0.5s; }
+      .t6  { opacity:0; animation: fadein 0.4s ease forwards 0.6s; }
+      .t7  { opacity:0; animation: fadein 0.4s ease forwards 0.7s; }
+      .t8  { opacity:0; animation: fadein 0.4s ease forwards 0.8s; }
+      .t9  { opacity:0; animation: fadein 0.4s ease forwards 0.9s; }
+      .t10 { opacity:0; animation: fadein 0.4s ease forwards 1.0s; }
+      .t11 { opacity:0; animation: fadein 0.4s ease forwards 1.1s; }
+      .t12 { opacity:0; animation: fadein 0.4s ease forwards 1.2s; }
+      .t13 { opacity:0; animation: fadein 0.4s ease forwards 1.3s; }
+      .t14 { opacity:0; animation: fadein 0.4s ease forwards 1.4s; }
+      .t15 { opacity:0; animation: fadein 0.4s ease forwards 1.5s; }
+      .t16 { opacity:0; animation: fadein 0.4s ease forwards 1.6s; }
+      .t17 { opacity:0; animation: fadein 0.4s ease forwards 1.7s; }
+      .t18 { opacity:0; animation: fadein 0.4s ease forwards 1.8s; }
+      .t19 { opacity:0; animation: fadein 0.4s ease forwards 1.9s; }
+      .t20 { opacity:0; animation: fadein 0.4s ease forwards 2.0s; }
+      .t21 { opacity:0; animation: fadein 0.4s ease forwards 2.1s; }
+      @keyframes fadein { to { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="800" height="130" rx="8" class="bg"/>
+
+  <!-- Row labels -->
+  <text x="16" y="34" class="sec">CLOUD · AWS</text>
+  <text x="16" y="80" class="sec">CI/CD · IAC</text>
+  <text x="16" y="114" class="sec">OBS · OS · VCS</text>
+
+  <!-- dividers -->
+  <line x1="0" y1="50" x2="800" y2="50" stroke="#161b22" stroke-width="1"/>
+  <line x1="0" y1="94" x2="800" y2="94" stroke="#161b22" stroke-width="1"/>
+
+  <!-- ── ROW 1: AWS services ── -->
+  <!-- EC2 -->
+  <g class="t1">
+    <rect x="130" y="18" width="36" height="22" rx="4" fill="#0c1d30" stroke="#1f6feb" stroke-width="1"/>
+    <text x="148" y="33" text-anchor="middle" class="tag-base" fill="#58a6ff">EC2</text>
+  </g>
+  <!-- EKS -->
+  <g class="t2">
+    <rect x="172" y="18" width="36" height="22" rx="4" fill="#0c1d30" stroke="#1f6feb" stroke-width="1"/>
+    <text x="190" y="33" text-anchor="middle" class="tag-base" fill="#58a6ff">EKS</text>
+  </g>
+  <!-- S3 -->
+  <g class="t3">
+    <rect x="214" y="18" width="30" height="22" rx="4" fill="#0c1d30" stroke="#1f6feb" stroke-width="1"/>
+    <text x="229" y="33" text-anchor="middle" class="tag-base" fill="#58a6ff">S3</text>
+  </g>
+  <!-- ECR -->
+  <g class="t4">
+    <rect x="250" y="18" width="36" height="22" rx="4" fill="#0c1d30" stroke="#1f6feb" stroke-width="1"/>
+    <text x="268" y="33" text-anchor="middle" class="tag-base" fill="#58a6ff">ECR</text>
+  </g>
+  <!-- SNS -->
+  <g class="t5">
+    <rect x="292" y="18" width="36" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="310" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">SNS</text>
+  </g>
+  <!-- SQS -->
+  <g class="t6">
+    <rect x="334" y="18" width="36" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="352" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">SQS</text>
+  </g>
+  <!-- EventBridge -->
+  <g class="t7">
+    <rect x="376" y="18" width="86" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="419" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">EventBridge</text>
+  </g>
+  <!-- CodePipeline -->
+  <g class="t8">
+    <rect x="468" y="18" width="94" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="515" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">CodePipeline</text>
+  </g>
+  <!-- API Gateway -->
+  <g class="t9">
+    <rect x="568" y="18" width="86" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="611" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">API Gateway</text>
+  </g>
+  <!-- CloudWatch -->
+  <g class="t10">
+    <rect x="660" y="18" width="84" height="22" rx="4" fill="#111318" stroke="#21262d" stroke-width="1"/>
+    <text x="702" y="33" text-anchor="middle" class="tag-base" fill="#8b949e">CloudWatch</text>
+  </g>
+
+  <!-- ── ROW 2: CI/CD + IaC ── -->
+  <!-- Jenkins -->
+  <g class="t11">
+    <rect x="130" y="60" width="62" height="22" rx="4" fill="#0d2119" stroke="#238636" stroke-width="1"/>
+    <text x="161" y="75" text-anchor="middle" class="tag-base" fill="#3fb950">Jenkins</text>
+  </g>
+  <!-- GitHub Actions -->
+  <g class="t12">
+    <rect x="198" y="60" width="114" height="22" rx="4" fill="#0d2119" stroke="#238636" stroke-width="1"/>
+    <text x="255" y="75" text-anchor="middle" class="tag-base" fill="#3fb950">GitHub Actions</text>
+  </g>
+  <!-- AWS CodePipeline -->
+  <g class="t13">
+    <rect x="318" y="60" width="130" height="22" rx="4" fill="#0d2119" stroke="#238636" stroke-width="1"/>
+    <text x="383" y="75" text-anchor="middle" class="tag-base" fill="#3fb950">AWS CodePipeline</text>
+  </g>
+  <!-- Terraform -->
+  <g class="t14">
+    <rect x="454" y="60" width="78" height="22" rx="4" fill="#0d2119" stroke="#238636" stroke-width="1"/>
+    <text x="493" y="75" text-anchor="middle" class="tag-base" fill="#3fb950">Terraform</text>
+  </g>
+  <!-- Docker -->
+  <g class="t15">
+    <rect x="538" y="60" width="58" height="22" rx="4" fill="#0d2119" stroke="#238636" stroke-width="1"/>
+    <text x="567" y="75" text-anchor="middle" class="tag-base" fill="#3fb950">Docker</text>
+  </g>
+
+  <!-- ── ROW 3: Observability + OS + VCS ── -->
+  <!-- Prometheus -->
+  <g class="t16">
+    <rect x="145" y="100" width="88" height="22" rx="4" fill="#1a1505" stroke="#9e6a03" stroke-width="1"/>
+    <text x="189" y="115" text-anchor="middle" class="tag-base" fill="#d29922">Prometheus</text>
+  </g>
+  <!-- Grafana -->
+  <g class="t17">
+    <rect x="239" y="100" width="66" height="22" rx="4" fill="#1a1505" stroke="#9e6a03" stroke-width="1"/>
+    <text x="272" y="115" text-anchor="middle" class="tag-base" fill="#d29922">Grafana</text>
+  </g>
+  <!-- Shell -->
+  <g class="t18">
+    <rect x="311" y="100" width="48" height="22" rx="4" fill="#111318" stroke="#30363d" stroke-width="1"/>
+    <text x="335" y="115" text-anchor="middle" class="tag-base" fill="#8b949e">Shell</text>
+  </g>
+  <!-- Linux -->
+  <g class="t19">
+    <rect x="365" y="100" width="50" height="22" rx="4" fill="#111318" stroke="#30363d" stroke-width="1"/>
+    <text x="390" y="115" text-anchor="middle" class="tag-base" fill="#8b949e">Linux</text>
+  </g>
+  <!-- Git -->
+  <g class="t20">
+    <rect x="421" y="100" width="36" height="22" rx="4" fill="#111318" stroke="#30363d" stroke-width="1"/>
+    <text x="439" y="115" text-anchor="middle" class="tag-base" fill="#8b949e">Git</text>
+  </g>
+  <!-- GitHub -->
+  <g class="t21">
+    <rect x="463" y="100" width="60" height="22" rx="4" fill="#111318" stroke="#30363d" stroke-width="1"/>
+    <text x="493" y="115" text-anchor="middle" class="tag-base" fill="#8b949e">GitHub</text>
+  </g>
+</svg>

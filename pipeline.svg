@@ -1,0 +1,215 @@
+<svg width="800" height="220" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&amp;display=swap');
+
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; }
+      .border { fill: none; stroke: #21262d; stroke-width: 1; }
+      .label { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; fill: #6e7681; }
+      .label-active { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; fill: #58a6ff; }
+      .label-done { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; fill: #3fb950; }
+      .time { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 9px; fill: #484f58; }
+      .time-done { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 9px; fill: #3fb950; }
+      .time-active { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 9px; fill: #58a6ff; }
+      .header { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; fill: #8b949e; }
+      .run-info { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 10px; fill: #484f58; }
+      .node-done { fill: #0d2119; stroke: #238636; stroke-width: 1.5; }
+      .node-active { fill: #0c1d30; stroke: #1f6feb; stroke-width: 1.5; }
+      .node-queue { fill: #0d1117; stroke: #21262d; stroke-width: 1; }
+      .check { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; fill: #3fb950; }
+      .dash { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 14px; fill: #30363d; }
+      .connector-done { stroke: #21262d; stroke-width: 1.5; }
+      .connector-queue { stroke: #161b22; stroke-width: 1; stroke-dasharray: 3 3; }
+
+      /* spinning loader for active node */
+      .spin-ring {
+        fill: none;
+        stroke: #1f6feb;
+        stroke-width: 2;
+        stroke-dasharray: 18 8;
+        transform-origin: 50% 50%;
+        animation: spin 1.2s linear infinite;
+      }
+      .spin-track {
+        fill: none;
+        stroke: #0c1d30;
+        stroke-width: 2;
+      }
+
+      /* pulse ring on active node */
+      .pulse-ring {
+        fill: none;
+        stroke: #1f6feb;
+        stroke-width: 1;
+        opacity: 0;
+        animation: pulse 2s ease-out infinite;
+      }
+
+      /* flow line shimmer on done connectors */
+      .flow-shimmer {
+        stroke: #58a6ff;
+        stroke-width: 1.5;
+        stroke-dasharray: 6 40;
+        stroke-dashoffset: 50;
+        opacity: 0.6;
+        animation: shimmer 2.5s linear infinite;
+      }
+      .flow-shimmer-2 { animation-delay: -0.8s; }
+      .flow-shimmer-3 { animation-delay: -1.6s; }
+
+      /* active node border flash */
+      .active-border {
+        fill: none;
+        stroke: #58a6ff;
+        stroke-width: 1;
+        opacity: 0;
+        animation: flash 1.8s ease-in-out infinite;
+      }
+
+      /* status dot */
+      .live-dot {
+        fill: #3fb950;
+        animation: blink 1.4s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%   { r: 18px; opacity: 0.5; }
+        100% { r: 30px; opacity: 0; }
+      }
+      @keyframes shimmer {
+        from { stroke-dashoffset: 50; }
+        to   { stroke-dashoffset: -50; }
+      }
+      @keyframes flash {
+        0%, 100% { opacity: 0; }
+        50%      { opacity: 0.4; }
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0.3; }
+      }
+    </style>
+
+    <!-- glow filter for active -->
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="800" height="220" rx="8" class="bg"/>
+
+  <!-- top bar -->
+  <rect x="0" y="0" width="800" height="40" rx="8" fill="#161b22"/>
+  <rect x="0" y="32" width="800" height="8" fill="#161b22"/>
+  <rect x="0" y="39" width="800" height="1" fill="#21262d"/>
+
+  <!-- window dots -->
+  <circle cx="20" cy="20" r="5" fill="#ff5f57"/>
+  <circle cx="36" cy="20" r="5" fill="#febc2e"/>
+  <circle cx="52" cy="20" r="5" fill="#28c840"/>
+
+  <!-- header text -->
+  <text x="72" y="24" class="header">deploy.yml</text>
+  <text x="168" y="24" class="header" fill="#21262d">·</text>
+  <text x="180" y="24" class="header">on: push → main</text>
+
+  <!-- run info right -->
+  <circle cx="698" cy="20" r="4" class="live-dot"/>
+  <text x="708" y="24" class="run-info">run #1847  in progress</text>
+
+  <!-- ─── STAGE NODES ─── -->
+  <!-- spacing: nodes at x = 55, 155, 255, 365, 475, 575, 675 center -->
+
+  <!-- DONE connector lines (with shimmer) -->
+  <!-- conn 1→2 -->
+  <line x1="93" y1="105" x2="117" y2="105" class="connector-done"/>
+  <line x1="93" y1="105" x2="117" y2="105" class="flow-shimmer"/>
+  <!-- conn 2→3 -->
+  <line x1="193" y1="105" x2="217" y2="105" class="connector-done"/>
+  <line x1="193" y1="105" x2="217" y2="105" class="flow-shimmer flow-shimmer-2"/>
+  <!-- conn 3→4 -->
+  <line x1="293" y1="105" x2="327" y2="105" class="connector-done"/>
+  <line x1="293" y1="105" x2="327" y2="105" class="flow-shimmer flow-shimmer-3"/>
+
+  <!-- QUEUE connector lines -->
+  <line x1="403" y1="105" x2="437" y2="105" class="connector-queue"/>
+  <line x1="513" y1="105" x2="537" y2="105" class="connector-queue"/>
+  <line x1="613" y1="105" x2="637" y2="105" class="connector-queue"/>
+
+  <!-- ── NODE 1: Checkout (done) ── -->
+  <rect x="17" y="77" width="76" height="56" rx="8" class="node-done"/>
+  <text x="55" y="102" text-anchor="middle" class="check">✓</text>
+  <text x="55" y="120" text-anchor="middle" class="label-done">Checkout</text>
+  <text x="55" y="132" text-anchor="middle" class="time-done">3s</text>
+
+  <!-- ── NODE 2: Lint (done) ── -->
+  <rect x="117" y="77" width="76" height="56" rx="8" class="node-done"/>
+  <text x="155" y="102" text-anchor="middle" class="check">✓</text>
+  <text x="155" y="120" text-anchor="middle" class="label-done">Lint / SAST</text>
+  <text x="155" y="132" text-anchor="middle" class="time-done">48s</text>
+
+  <!-- ── NODE 3: Tests (done) ── -->
+  <rect x="217" y="77" width="76" height="56" rx="8" class="node-done"/>
+  <text x="255" y="102" text-anchor="middle" class="check">✓</text>
+  <text x="255" y="120" text-anchor="middle" class="label-done">Unit Tests</text>
+  <text x="255" y="132" text-anchor="middle" class="time-done">1m 12s</text>
+
+  <!-- ── NODE 4: Docker Build (ACTIVE) ── -->
+  <!-- pulse ring -->
+  <circle cx="365" cy="105" r="18" class="pulse-ring"/>
+  <!-- node box -->
+  <rect x="327" y="77" width="76" height="56" rx="8" class="node-active"/>
+  <!-- outer flash ring -->
+  <rect x="327" y="77" width="76" height="56" rx="8" class="active-border"/>
+  <!-- spin track -->
+  <circle cx="365" cy="97" r="9" class="spin-track"/>
+  <!-- spinning arc — needs transform-box to spin in place -->
+  <g style="transform-origin:365px 97px">
+    <circle cx="365" cy="97" r="9" class="spin-ring"/>
+  </g>
+  <text x="365" y="120" text-anchor="middle" class="label-active">Docker Build</text>
+  <text x="365" y="132" text-anchor="middle" class="time-active">running…</text>
+
+  <!-- ── NODE 5: ECR Push (queue) ── -->
+  <rect x="437" y="77" width="76" height="56" rx="8" class="node-queue"/>
+  <text x="475" y="102" text-anchor="middle" class="dash">—</text>
+  <text x="475" y="120" text-anchor="middle" class="label">ECR Push</text>
+  <text x="475" y="132" text-anchor="middle" class="time">queued</text>
+
+  <!-- ── NODE 6: Terraform (queue) ── -->
+  <rect x="537" y="77" width="76" height="56" rx="8" class="node-queue"/>
+  <text x="575" y="102" text-anchor="middle" class="dash">—</text>
+  <text x="575" y="120" text-anchor="middle" class="label">Terraform</text>
+  <text x="575" y="132" text-anchor="middle" class="time">queued</text>
+
+  <!-- ── NODE 7: EKS Deploy (queue) ── -->
+  <rect x="637" y="77" width="76" height="56" rx="8" class="node-queue"/>
+  <text x="675" y="102" text-anchor="middle" class="dash">—</text>
+  <text x="675" y="120" text-anchor="middle" class="label">EKS Deploy</text>
+  <text x="675" y="132" text-anchor="middle" class="time">queued</text>
+
+  <!-- bottom divider -->
+  <line x1="0" y1="155" x2="800" y2="155" stroke="#161b22" stroke-width="1"/>
+
+  <!-- log line area -->
+  <text x="20" y="175" class="run-info">12:36:04</text>
+  <text x="90" y="175" font-family="'JetBrains Mono','Courier New',monospace" font-size="10" fill="#8b949e">▶</text>
+  <text x="104" y="175" font-family="'JetBrains Mono','Courier New',monospace" font-size="10" fill="#cdd6f4">docker buildx build --platform linux/amd64 -t api:v2.4.1 .</text>
+
+  <text x="20" y="192" class="run-info">12:36:06</text>
+  <text x="104" y="192" font-family="'JetBrains Mono','Courier New',monospace" font-size="10" fill="#484f58">[3/6] RUN pip install -r requirements.txt  ·  cache miss — rebuilding layer</text>
+
+  <text x="20" y="209" class="run-info">12:36:09</text>
+  <text x="90" y="209" font-family="'JetBrains Mono','Courier New',monospace" font-size="10" fill="#58a6ff">·</text>
+  <text x="104" y="209" font-family="'JetBrains Mono','Courier New',monospace" font-size="10" fill="#484f58">[4/6] COPY ./app /app</text>
+  <rect x="296" y="200" width="6" height="11" fill="#58a6ff">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
