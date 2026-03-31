@@ -10,7 +10,7 @@
 
 ```
 $ whoami
-> YOUR_NAME  ·  DevOps & Cloud Engineer
+> Kittukasa  ·  DevOps & Cloud Engineer
 > AWS  ·  Jenkins  ·  Terraform  ·  Docker  ·  Linux
 ```
 
@@ -22,7 +22,7 @@ $ whoami
 
 ### CI/CD Pipeline
 
-![pipeline](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/main/pipeline.svg)
+![pipeline](https://raw.githubusercontent.com/Kittukasa/Kittukasa/main/pipeline.svg)
 
 | Stage | Tool | What it does |
 |---|---|---|
@@ -38,7 +38,7 @@ $ whoami
 
 ### Stack
 
-![stack](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/main/stack.svg)
+![stack](https://raw.githubusercontent.com/Kittukasa/Kittukasa/main/stack.svg)
 
 ---
 
