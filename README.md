@@ -1,6 +1,6 @@
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   SETUP INSTRUCTIONS
-  1. Create repo named: YOUR_USERNAME/YOUR_USERNAME
+  1. Create repo named: Kittukasa/Kittukasa
   2. Upload pipeline.svg and stack.svg to the root of that repo
   3. Replace every YOUR_USERNAME with your GitHub handle
   4. Replace YOUR_NAME with your real name
